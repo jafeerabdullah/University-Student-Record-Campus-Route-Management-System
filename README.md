@@ -271,13 +271,14 @@ University-Student-Record-Campus-Route-Management-System/
 
 ## Sample data and outputs
 
-`--demo` loads these fictional students, using example.com email addresses:
+`--demo` loads these four sample students. Additional profile fields are defined in `UniversitySystem.loadDemoData()`:
 
 | Student ID | Name | Programme | GPA |
 | --- | --- | --- | --- |
-| 23DA2-0001 | Ahmed | BAIT | 3.75 |
-| 23DA2-0002 | Ali | IT | 3.50 |
-| 23DA2-0003 | Hassan | Computer Science | 3.90 |
+| 0001 | Abdullah | BAIT | 3.75 |
+| 0002 | Asra | IT | 3.50 |
+| 0003 | Dilsath | Computer Science | 3.90 |
+| 0004 | Nifra | Computer Science | 3.60 |
 
 The seven demo locations are **Main Gate, Library, Engineering Faculty, Computer Laboratory, Lecture Hall, Cafeteria, and Hostel**. Eight illustrative roads connect them. Queue requests start empty; setup actions appear in history.
 
@@ -287,10 +288,11 @@ Example option 8 output:
 Students using AVL inorder traversal (Student ID ascending)
 ------------------------------------------------------------
 ID             Name                   Programme              GPA
-23DA2-0001     Ahmed                  BAIT                   3.75
-23DA2-0002     Ali                    IT                     3.50
-23DA2-0003     Hassan                 Computer Science       3.90
-Total students: 3
+0001           Abdullah               BAIT                   3.75
+0002           Asra                   IT                     3.50
+0003           Dilsath                Computer Science       3.90
+0004           Nifra                  Computer Science       3.60
+Total students: 4
 ```
 
 Example traversal:
@@ -319,22 +321,19 @@ It also checks malformed numeric input, missing records, empty structures, `NaN`
 Local verification used JDK **23.0.2** with `--release 17`, with no compiler warnings. The included GitHub workflow is configured to run tests on an actual Java 17 runtime after the project is pushed. See [testing details](docs/TESTING.md) for scenarios and test output.
 
 ## Group member contributions
-
-The table below is a **proposed allocation**. Replace member names and `XXXXX` with your actual group details, and record contributions supported by your group's commits and review history. It does not claim that unnamed members performed this implementation.
-
 | Member | Student ID | Responsibility |
 |--------|------------|----------------|
-| Member 1 | XXXXX | Student Linked List |
-| Member 2 | XXXXX | Queue and Stack |
-| Member 3 | XXXXX | Hash Table and BST/AVL |
-| Member 4 | XXXXX | Campus Graph Routes |
+| J.Abdullah | 23DA2-0575 | Student Linked List |
+| SMF.Asra | 23DA2-0826 | Queue and Stack |
+| MSM.Dilsath | 23DA2-0576 | Hash Table and BST/AVL |
+| MTF.Nifra | 23DA2-0729 | Campus Graph Routes |
 
 | Member | Individual contribution to document | Developed classes in assigned module | Implemented algorithms | Relevant automated testing performed by this project |
 | --- | --- | --- | --- | --- |
-| Member 1 | Student fields, validation, record operations and search/sort integration | `Student`, `StudentNode`, `StudentLinkedList`, `SearchAlgorithms`, `SortingAlgorithms` | List traversal, linear/binary search, merge sort | Head/middle/tail deletion, duplicate IDs/names, update behavior, sorting and searching |
-| Member 2 | Service requests, action logging and associated submenus | `ServiceRequest`, `QueueNode`, `ServiceQueue`, `Action`, `StackNode`, `ActionStack` | FIFO enqueue/dequeue; LIFO push/pop/peek | Empty/reused queue, FIFO order, stack order, history pop behavior, pending requests |
-| Member 3 | Fast lookup, ordered records and synchronized indexes | `StudentHashTable`, `TreeNode`, `StudentBST`, `AVLTree` | Polynomial hashing, separate chaining, rehashing, inorder traversal, tree deletion and AVL rotations | Collision-chain removal, resize retention, all rotations, randomized insertion/deletion, index agreement |
-| Member 4 | Campus vertices, roads and traversal presentation | `Location`, `Edge`, `CampusRouteGraph` | Adjacency lists, BFS queue, iterative DFS stack | Symmetric edges, cycles, isolated vertices, duplicate/invalid roads, vertex removal and array expansion |
+| J.Abdullah | Student fields, validation, record operations and search/sort integration | `Student`, `StudentNode`, `StudentLinkedList`, `SearchAlgorithms`, `SortingAlgorithms` | List traversal, linear/binary search, merge sort | Head/middle/tail deletion, duplicate IDs/names, update behavior, sorting and searching |
+| SMF.Asra | Service requests, action logging and associated submenus | `ServiceRequest`, `QueueNode`, `ServiceQueue`, `Action`, `StackNode`, `ActionStack` | FIFO enqueue/dequeue; LIFO push/pop/peek | Empty/reused queue, FIFO order, stack order, history pop behavior, pending requests |
+| MSM.Dilsath | Fast lookup, ordered records and synchronized indexes | `StudentHashTable`, `TreeNode`, `StudentBST`, `AVLTree` | Polynomial hashing, separate chaining, rehashing, inorder traversal, tree deletion and AVL rotations | Collision-chain removal, resize retention, all rotations, randomized insertion/deletion, index agreement |
+| MTF.Nifra | Campus vertices, roads and traversal presentation | `Location`, `Edge`, `CampusRouteGraph` | Adjacency lists, BFS queue, iterative DFS stack | Symmetric edges, cycles, isolated vertices, duplicate/invalid roads, vertex removal and array expansion |
 
 Integration classes, README maintenance, and final demonstration can be shared and documented in pull requests. Individual testing and review claims should be updated with the actual person and commit/PR references before submission.
 
@@ -354,10 +353,9 @@ campus-route-module
 
 The delivered local repository includes an initial implementation commit and these branch names pointing at that baseline. This is a starting point for collaboration, not fabricated individual contribution history. Remote publication requires your own GitHub repository URL; no remote pull requests are included.
 
-Example workflow after creating an empty GitHub repository, replacing `YOUR_ACCOUNT`:
 
 ```sh
-git remote add origin https://github.com/YOUR_ACCOUNT/University-Student-Record-Campus-Route-Management-System.git
+git remote add origin https://github.com/jafeerabdullah/University-Student-Record-Campus-Route-Management-System.git
 git push -u origin main
 git push origin student-record-module queue-stack-module hash-tree-module campus-route-module
 git switch student-record-module
@@ -371,5 +369,4 @@ Added service request queue
 Implemented AVL tree student sorting
 Created campus route graph BFS DFS
 ```
-
-Push the module branch and open a pull request into `main`. Use the included PR template, describe the behavior and testing, ask another member to review, and merge after checks pass. The `.github/workflows/java.yml` workflow compiles and tests pushes and pull requests with Java 17.
+"# University-Student-Record-Campus-Route-Management-System" 
