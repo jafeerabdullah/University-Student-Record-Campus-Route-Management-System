@@ -1,8 +1,0 @@
-{
-    "version": "0.2.0",
-    "configurations": [
-        { "type": "java", "name": "University System", "request": "launch", "mainClass": "Main", "console": "integratedTerminal" },
-        { "type": "java", "name": "University System (Demo)", "request": "launch", "mainClass": "Main", "args": "--demo", "console": "integratedTerminal" },
-        { "type": "java", "name": "Run Tests", "request": "launch", "mainClass": "TestRunner", "console": "integratedTerminal" }
-    ]
-}
