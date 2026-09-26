@@ -8,23 +8,24 @@ Build and launch with `--demo` for these fictional records and illustrative camp
 Students using AVL inorder traversal (Student ID ascending)
 ------------------------------------------------------------
 ID             Name                   Programme              GPA
-23DA2-0001     Ahmed                  BAIT                   3.75
-23DA2-0002     Ali                    IT                     3.50
-23DA2-0003     Hassan                 Computer Science       3.90
-Total students: 3
+0001           Abdullah               BAIT                   3.75
+0002           Asra                   IT                     3.50
+0003           Dilsath                Computer Science       3.90
+0004           Nifra                  Computer Science       3.60
+Total students: 4
 ```
 
-## Hash lookup: option 9, ID 23DA2-0002
+## Hash lookup: option 9, ID 0002
 
 ```text
-Student ID       : 23DA2-0002
-Student Name     : Ali
+Student ID       : 0002
+Student Name     : Asra
 Age              : 22
-Gender           : Male
+Gender           : Female
 Degree Programme : IT
-Email            : ali@example.com
-Contact Number   : 0772345678
-Address          : Kandy
+Email            : mohammedasra577@gmail.com
+Contact Number   : 0779184849
+Address          : Eravur
 GPA              : 3.50
 ```
 
@@ -32,21 +33,22 @@ GPA              : 3.50
 
 ```text
 GPA ranking (merge sort; equal GPAs share a rank)
-1. 23DA2-0003 | Hassan | Computer Science | GPA 3.90
-2. 23DA2-0001 | Ahmed | BAIT | GPA 3.75
-3. 23DA2-0002 | Ali | IT | GPA 3.50
+1. 0003 | Dilsath | Computer Science | GPA 3.90
+2. 0001 | Abdullah | BAIT | GPA 3.75
+3. 0004 | Nifra | Computer Science | GPA 3.60
+4. 0002 | Asra | IT | GPA 3.50
 ```
 
 ## Service queue: option 5, then tool 1; process with option 6
 
 ```text
-Added to queue: REQ-1 | Student 23DA2-0001 | Transcript | Printed transcript copy
+Added to queue: REQ-1 | Student 0001 | Transcript | Printed transcript copy
 Waiting requests (FIFO, next request first)
-REQ-1 | Student 23DA2-0001 | Transcript | Printed transcript copy
+REQ-1 | Student 0001 | Transcript | Printed transcript copy
 ```
 
 ```text
-Processed: REQ-1 | Student 23DA2-0001 | Transcript | Printed transcript copy
+Processed: REQ-1 | Student 0001 | Transcript | Printed transcript copy
 ```
 
 ## Campus connections: option 14
