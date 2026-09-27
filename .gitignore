@@ -1,7 +1,0 @@
-out/
-*.class
-*.log
-.DS_Store
-Thumbs.db
-.idea/
-*.iml
