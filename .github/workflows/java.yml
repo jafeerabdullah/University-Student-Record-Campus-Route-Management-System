@@ -36,4 +36,4 @@ jobs:
 
     - name: Run demo smoke test
       run: |
-        printf '4\n0\n16\n' | java -cp out Main --demo
+        printf '8\n9\n0002\n15\n1\nMain Gate\n15\n2\nMain Gate\n16\n' | java -cp out Main --demo

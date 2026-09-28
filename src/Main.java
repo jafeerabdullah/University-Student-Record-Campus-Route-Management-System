@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
-/** Launch with --demo for four sample student records. */
+/** Launch with --demo for four sample students and illustrative campus roads. */
 public final class Main {
     private Main() { }
 
@@ -18,7 +18,7 @@ public final class Main {
         UniversitySystem system = new UniversitySystem();
         if (args.length == 1) {
             system.loadDemoData();
-            System.out.println("Loaded 4 sample students.");
+            System.out.println("Loaded 4 sample students, 7 campus locations and 8 roads.");
         }
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
         try {

@@ -8,8 +8,8 @@ Member name and assigned module:
 
 Keep changes focused on the assigned module and its necessary integration/tests.
 Keep the shared application and other contributors' files in the branch.
-Hash/tree and campus modules are integrated only when their contributors submit
-pull requests and the project owner accepts them.
+All four assigned modules have now been accepted. Further changes should use
+focused pull requests and preserve the existing application and other modules.
 
 ## Validation
 

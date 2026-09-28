@@ -22,7 +22,6 @@ public final class ConsoleApplication {
 
     public void run() throws IOException {
         out.println("Records are kept in memory for this session.");
-        out.println("Options 8-15 will become available in a later update.");
         while (true) {
             showMenu();
             int choice = input.choice("Select an option", 1, 16);
@@ -35,8 +34,14 @@ public final class ConsoleApplication {
                     case 5 -> serviceRequests();
                     case 6 -> processRequest();
                     case 7 -> historyTools();
-                    case 8, 9 -> out.println("Tree and hash searching features are not available yet.");
-                    case 10, 11, 12, 13, 14, 15 -> out.println("Campus route features are not available yet.");
+                    case 8 -> showStudents(system.studentsById(), "Students using AVL inorder traversal (Student ID ascending)", false);
+                    case 9 -> showStudent(system.searchByHash(input.studentId()));
+                    case 10 -> { system.addLocation(input.text("Location name")); out.println("Campus location added."); }
+                    case 11 -> { system.removeLocation(input.text("Location name")); out.println("Campus location and connected roads removed."); }
+                    case 12 -> addRoad();
+                    case 13 -> removeRoad();
+                    case 14 -> out.print(system.describeCampus());
+                    case 15 -> traverseCampus();
                     case 16 -> { out.println("Goodbye!"); return; }
                     default -> throw new IllegalStateException("Unexpected validated menu choice.");
                 }
@@ -77,7 +82,7 @@ public final class ConsoleApplication {
             return;
         }
         system.addStudent(readStudent(id, null));
-        out.println("Student added to linked list.");
+        out.println("Student added to linked list, hash table and AVL tree.");
     }
 
     private void updateStudent() throws IOException {
@@ -87,7 +92,7 @@ public final class ConsoleApplication {
         showStudent(existing);
         out.println("Press Enter to keep a current value. Student ID remains " + id + ".");
         system.updateStudent(readStudent(id, existing));
-        out.println("Student updated in linked list.");
+        out.println("Student updated in linked list, hash table and AVL tree.");
     }
 
     private Student readStudent(String id, Student old) throws IOException {
@@ -104,18 +109,31 @@ public final class ConsoleApplication {
 
     private void deleteStudent() throws IOException {
         Student removed = system.deleteStudent(input.studentId());
-        out.println("Deleted student " + removed.getStudentId() + " from linked list.");
+        out.println("Deleted student " + removed.getStudentId() + " from linked list, hash table and AVL tree.");
     }
 
     private void recordTools() throws IOException {
-        showStudents(system.allStudents());
+        showStudents(system.allStudents(), "Student records in linked list insertion order", true);
         while (true) {
             out.println("\nRecord tools");
-            out.println("1. Search Student ID using Linked List");
+            out.println("1. Linear Search by Student ID");
+            out.println("2. Linear Search by Student Name");
+            out.println("3. Binary Search by Student ID");
+            out.println("4. Binary Search by Student Name");
+            out.println("5. Sort Students by Name (ascending)");
+            out.println("6. Rank Students by GPA (highest first)");
+            out.println("7. Display Hash Table");
             out.println("0. Return to Main Menu");
-            int choice = input.choice("Select a record tool", 0, 1);
+            int choice = input.choice("Select a record tool", 0, 7);
             if (choice == 0) { return; }
-            showStudent(system.searchStudent(input.studentId()));
+            switch (choice) {
+                case 1, 3 -> showStudent(system.searchById(input.studentId(), choice == 3));
+                case 2, 4 -> showStudents(system.searchByName(input.text("Student name (exact match)"), choice == 4), "Matching students", true);
+                case 5 -> showStudents(system.studentsByName(), "Students sorted by name (merge sort)", false);
+                case 6 -> showRanking();
+                case 7 -> out.print(system.describeHashTable());
+                default -> throw new IllegalStateException("Unexpected record tool.");
+            }
         }
     }
 
@@ -133,12 +151,31 @@ public final class ConsoleApplication {
         out.printf(Locale.ROOT, "GPA              : %.2f%n", student.getGpa());
     }
 
-    private void showStudents(Student[] students) {
-        out.println("\nStudent records in linked list insertion order");
+    private void showStudents(Student[] students, String title, boolean fullDetails) {
+        out.println("\n" + title);
         out.println("------------------------------------------------------------");
         if (students.length == 0) { out.println("No student records."); return; }
-        for (Student student : students) { showStudent(student); }
+        if (fullDetails) {
+            for (Student student : students) { showStudent(student); }
+        } else {
+            out.printf("%-14s %-22s %-22s %s%n", "ID", "Name", "Programme", "GPA");
+            for (Student student : students) {
+                out.printf(Locale.ROOT, "%-14s %-22s %-22s %.2f%n", student.getStudentId(),
+                        student.getName(), student.getDegreeProgramme(), student.getGpa());
+            }
+        }
         out.println("Total students: " + students.length);
+    }
+
+    private void showRanking() {
+        Student[] ranked = system.studentsByGpa();
+        out.println("\nGPA ranking (merge sort; equal GPAs share a rank)");
+        if (ranked.length == 0) { out.println("No student records."); return; }
+        int rank = 0;
+        for (int i = 0; i < ranked.length; i++) {
+            if (i == 0 || Double.compare(ranked[i].getGpa(), ranked[i - 1].getGpa()) != 0) { rank = i + 1; }
+            out.println(rank + ". " + ranked[i]);
+        }
     }
 
     private void serviceRequests() throws IOException {
@@ -191,4 +228,31 @@ public final class ConsoleApplication {
         for (Action action : actions) { out.println(action); }
     }
 
+    private void showLocations() {
+        out.println("Campus locations:");
+        for (String location : system.locationNames()) { out.println("- " + location); }
+    }
+
+    private void addRoad() throws IOException {
+        showLocations();
+        system.addRoad(input.text("Starting location"), input.text("Destination location"), input.distance());
+        out.println("Bidirectional campus road added.");
+    }
+
+    private void removeRoad() throws IOException {
+        showLocations();
+        system.removeRoad(input.text("Starting location"), input.text("Destination location"));
+        out.println("Bidirectional campus road removed.");
+    }
+
+    private void traverseCampus() throws IOException {
+        if (system.locationNames().length == 0) { out.println("No campus locations."); return; }
+        out.println("1. BFS");
+        out.println("2. DFS");
+        boolean bfs = input.choice("Select traversal", 1, 2) == 1;
+        showLocations();
+        String[] order = system.traverse(input.text("Starting location"), bfs);
+        out.println((bfs ? "BFS" : "DFS") + " traversal: " + String.join(" -> ", order));
+        out.println("Visited " + order.length + " of " + system.locationNames().length + " locations from the starting location.");
+    }
 }
