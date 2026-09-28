@@ -11,7 +11,21 @@ try {
     if (-not (Get-Command javac -ErrorAction SilentlyContinue)) {
         throw 'JDK 17 or above is required. Make javac and java available on PATH.'
     }
-    New-Item -ItemType Directory -Path 'out' -Force | Out-Null
+    # Remove only this project's verified output directory, so removed modules
+    # cannot remain available as stale class files after a branch change.
+    $outputPath = [System.IO.Path]::GetFullPath((Join-Path $projectRoot 'out'))
+    if (Test-Path -LiteralPath $outputPath) {
+        $outputItem = Get-Item -LiteralPath $outputPath -Force
+        if (($outputItem.Attributes -band [System.IO.FileAttributes]::ReparsePoint) -ne 0) {
+            throw 'Refusing to clean an output directory that is a symbolic link or junction.'
+        }
+        if ((Resolve-Path -LiteralPath $outputPath).Path -ne $outputPath -or
+            (Split-Path -Parent $outputPath) -ne $projectRoot) {
+            throw 'Output directory is outside the expected project location.'
+        }
+        Remove-Item -LiteralPath $outputPath -Recurse -Force
+    }
+    New-Item -ItemType Directory -Path $outputPath | Out-Null
     $sourceFiles = @(Get-ChildItem -LiteralPath 'src' -Filter '*.java' -Recurse | ForEach-Object { '"' + $_.FullName.Replace('\', '/') + '"' })
     if ($Mode -eq 'test') {
         $sourceFiles += @(Get-ChildItem -LiteralPath 'tests' -Filter '*.java' -Recurse | ForEach-Object { '"' + $_.FullName.Replace('\', '/') + '"' })

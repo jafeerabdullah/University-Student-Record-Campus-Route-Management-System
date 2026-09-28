@@ -30,12 +30,10 @@ jobs:
         distribution: 'temurin'
 
 
-    - name: Compile Java Source Files
-      run: |
-        mkdir -p out
-        javac -d out $(find src -name "*.java")
+    - name: Compile Java 17 sources and run regression tests
+      run: sh scripts/build.sh test
 
 
-    - name: Run Application Test
+    - name: Run demo smoke test
       run: |
-        java -cp out Main
+        printf '4\n0\n16\n' | java -cp out Main --demo
