@@ -1,6 +1,9 @@
-4
-1
+8
+9
 0002
+4
+5
+6
 0
 5
 1
@@ -10,6 +13,11 @@ Printed transcript copy
 2
 0
 6
-8
 14
+15
+1
+Main Gate
+15
+2
+Main Gate
 16

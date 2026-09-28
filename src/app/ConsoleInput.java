@@ -76,4 +76,13 @@ public final class ConsoleInput {
         return readValue("Contact number", existing, Student::validateContact);
     }
 
+    public double distance() throws IOException {
+        return readValue("Distance in metres", null, value -> {
+            double distance = Double.parseDouble(value);
+            if (!Double.isFinite(distance) || distance <= 0) {
+                throw new IllegalArgumentException("Distance must be a finite number greater than zero.");
+            }
+            return distance;
+        });
+    }
 }
