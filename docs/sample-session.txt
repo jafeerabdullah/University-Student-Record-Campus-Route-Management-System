@@ -1,65 +1,6 @@
-Loaded 3 fictional students, 7 campus locations and 8 roads.
+Loaded 4 sample students.
 Records are kept in memory for this session.
-
-============================================================
- UNIVERSITY STUDENT RECORD AND CAMPUS ROUTE
- MANAGEMENT SYSTEM
-============================================================
-1. Add Student Record
-2. Update Student Record
-3. Delete Student Record
-4. Display All Records using Linked List
-5. Add Service Request to Queue
-6. Process Next Service Request
-7. Display Recent Actions using Stack
-8. Display Students using BST/AVL
-9. Search Student using Hashing
-10. Add Campus Location
-11. Remove Campus Location
-12. Add Campus Connection/Road
-13. Remove Campus Connection/Road
-14. Display Campus Connections
-15. Traverse Campus Locations using BFS or DFS
-16. Exit
-Select an option:
-Students using AVL inorder traversal (Student ID ascending)
-------------------------------------------------------------
-ID             Name                   Programme              GPA
-23DA2-0001     Ahmed                  BAIT                   3.75
-23DA2-0002     Ali                    IT                     3.50
-23DA2-0003     Hassan                 Computer Science       3.90
-Total students: 3
-
-============================================================
- UNIVERSITY STUDENT RECORD AND CAMPUS ROUTE
- MANAGEMENT SYSTEM
-============================================================
-1. Add Student Record
-2. Update Student Record
-3. Delete Student Record
-4. Display All Records using Linked List
-5. Add Service Request to Queue
-6. Process Next Service Request
-7. Display Recent Actions using Stack
-8. Display Students using BST/AVL
-9. Search Student using Hashing
-10. Add Campus Location
-11. Remove Campus Location
-12. Add Campus Connection/Road
-13. Remove Campus Connection/Road
-14. Display Campus Connections
-15. Traverse Campus Locations using BFS or DFS
-16. Exit
-Select an option: Student ID: ------------------------------------------------------------
-Student ID       : 23DA2-0002
-Student Name     : Ali
-Age              : 22
-Gender           : Male
-Degree Programme : IT
-Email            : ali@example.com
-Contact Number   : 0772345678
-Address          : Kandy
-GPA              : 3.50
+Options 8-15 will become available in a later update.
 
 ============================================================
  UNIVERSITY STUDENT RECORD AND CAMPUS ROUTE
@@ -85,78 +26,63 @@ Select an option:
 Student records in linked list insertion order
 ------------------------------------------------------------
 ------------------------------------------------------------
-Student ID       : 23DA2-0001
-Student Name     : Ahmed
+Student ID       : 0001
+Student Name     : Abdullah
 Age              : 21
 Gender           : Male
 Degree Programme : BAIT
-Email            : ahmed@example.com
-Contact Number   : 0771234567
-Address          : Colombo
+Email            : jafeerabdullah4g@gmail.com
+Contact Number   : 0770671752
+Address          : Kattankudy
 GPA              : 3.75
 ------------------------------------------------------------
-Student ID       : 23DA2-0002
-Student Name     : Ali
+Student ID       : 0002
+Student Name     : Asra
 Age              : 22
-Gender           : Male
+Gender           : Female
 Degree Programme : IT
-Email            : ali@example.com
-Contact Number   : 0772345678
-Address          : Kandy
+Email            : mohammedasra577@gmail.com
+Contact Number   : 0779184849
+Address          : Eravur
 GPA              : 3.50
 ------------------------------------------------------------
-Student ID       : 23DA2-0003
-Student Name     : Hassan
+Student ID       : 0003
+Student Name     : Dilsath
 Age              : 20
 Gender           : Male
 Degree Programme : Computer Science
-Email            : hassan@example.com
-Contact Number   : 0773456789
-Address          : Galle
+Email            : dilsathmohamed90@gmail.com
+Contact Number   : 0704875725
+Address          : Polonnauruwa
 GPA              : 3.90
-Total students: 3
-
-Record tools
-1. Linear Search by Student ID
-2. Linear Search by Student Name
-3. Binary Search by Student ID
-4. Binary Search by Student Name
-5. Sort Students by Name (ascending)
-6. Rank Students by GPA (highest first)
-7. Display Hash Table
-0. Return to Main Menu
-Select a record tool:
-Students sorted by name (merge sort)
 ------------------------------------------------------------
-ID             Name                   Programme              GPA
-23DA2-0001     Ahmed                  BAIT                   3.75
-23DA2-0002     Ali                    IT                     3.50
-23DA2-0003     Hassan                 Computer Science       3.90
-Total students: 3
+Student ID       : 0004
+Student Name     : Nifra
+Age              : 21
+Gender           : Female
+Degree Programme : Computer Science
+Email            : nifra@example.com
+Contact Number   : 0775691305
+Address          : Polonnaruwa
+GPA              : 3.60
+Total students: 4
 
 Record tools
-1. Linear Search by Student ID
-2. Linear Search by Student Name
-3. Binary Search by Student ID
-4. Binary Search by Student Name
-5. Sort Students by Name (ascending)
-6. Rank Students by GPA (highest first)
-7. Display Hash Table
+1. Search Student ID using Linked List
 0. Return to Main Menu
-Select a record tool:
-GPA ranking (merge sort; equal GPAs share a rank)
-1. 23DA2-0003 | Hassan | Computer Science | GPA 3.90
-2. 23DA2-0001 | Ahmed | BAIT | GPA 3.75
-3. 23DA2-0002 | Ali | IT | GPA 3.50
+Select a record tool: Student ID: ------------------------------------------------------------
+Student ID       : 0002
+Student Name     : Asra
+Age              : 22
+Gender           : Female
+Degree Programme : IT
+Email            : mohammedasra577@gmail.com
+Contact Number   : 0779184849
+Address          : Eravur
+GPA              : 3.50
 
 Record tools
-1. Linear Search by Student ID
-2. Linear Search by Student Name
-3. Binary Search by Student ID
-4. Binary Search by Student Name
-5. Sort Students by Name (ascending)
-6. Rank Students by GPA (highest first)
-7. Display Hash Table
+1. Search Student ID using Linked List
 0. Return to Main Menu
 Select a record tool:
 ============================================================
@@ -183,15 +109,15 @@ Select an option:
 1. Add Service Request
 2. Display Waiting Requests
 0. Return to Main Menu
-Select a queue operation: Student ID: Request type: Description: Added to queue: REQ-1 | Student 23DA2-0001 | Transcript | Printed transcript copy
+Select a queue operation: Student ID: Request type: Description: Added to queue: REQ-1 | Student 0001 | Transcript | Printed transcript copy
 Waiting requests (FIFO, next request first)
-REQ-1 | Student 23DA2-0001 | Transcript | Printed transcript copy
+REQ-1 | Student 0001 | Transcript | Printed transcript copy
 
 1. Add Service Request
 2. Display Waiting Requests
 0. Return to Main Menu
 Select a queue operation: Waiting requests (FIFO, next request first)
-REQ-1 | Student 23DA2-0001 | Transcript | Printed transcript copy
+REQ-1 | Student 0001 | Transcript | Printed transcript copy
 
 1. Add Service Request
 2. Display Waiting Requests
@@ -217,7 +143,7 @@ Select a queue operation:
 14. Display Campus Connections
 15. Traverse Campus Locations using BFS or DFS
 16. Exit
-Select an option: Processed: REQ-1 | Student 23DA2-0001 | Transcript | Printed transcript copy
+Select an option: Processed: REQ-1 | Student 0001 | Transcript | Printed transcript copy
 
 ============================================================
  UNIVERSITY STUDENT RECORD AND CAMPUS ROUTE
@@ -239,15 +165,7 @@ Select an option: Processed: REQ-1 | Student 23DA2-0001 | Transcript | Printed t
 14. Display Campus Connections
 15. Traverse Campus Locations using BFS or DFS
 16. Exit
-Select an option: Campus connections (bidirectional; metres)
-Main Gate -> Library (150.00 m), Engineering Faculty (300.00 m)
-Library -> Main Gate (150.00 m), Computer Laboratory (100.00 m), Cafeteria (120.00 m)
-Engineering Faculty -> Main Gate (300.00 m), Lecture Hall (80.00 m)
-Computer Laboratory -> Library (100.00 m), Lecture Hall (90.00 m)
-Lecture Hall -> Engineering Faculty (80.00 m), Computer Laboratory (90.00 m), Cafeteria (140.00 m)
-Cafeteria -> Library (120.00 m), Lecture Hall (140.00 m), Hostel (250.00 m)
-Hostel -> Cafeteria (250.00 m)
-7 locations, 8 roads
+Select an option: Tree and hash searching features are not available yet.
 
 ============================================================
  UNIVERSITY STUDENT RECORD AND CAMPUS ROUTE
@@ -269,51 +187,7 @@ Hostel -> Cafeteria (250.00 m)
 14. Display Campus Connections
 15. Traverse Campus Locations using BFS or DFS
 16. Exit
-Select an option: 1. BFS
-2. DFS
-Select traversal: Campus locations:
-- Main Gate
-- Library
-- Engineering Faculty
-- Computer Laboratory
-- Lecture Hall
-- Cafeteria
-- Hostel
-Starting location: BFS traversal: Main Gate -> Library -> Engineering Faculty -> Computer Laboratory -> Cafeteria -> Lecture Hall -> Hostel
-Visited 7 of 7 locations from the starting location.
-
-============================================================
- UNIVERSITY STUDENT RECORD AND CAMPUS ROUTE
- MANAGEMENT SYSTEM
-============================================================
-1. Add Student Record
-2. Update Student Record
-3. Delete Student Record
-4. Display All Records using Linked List
-5. Add Service Request to Queue
-6. Process Next Service Request
-7. Display Recent Actions using Stack
-8. Display Students using BST/AVL
-9. Search Student using Hashing
-10. Add Campus Location
-11. Remove Campus Location
-12. Add Campus Connection/Road
-13. Remove Campus Connection/Road
-14. Display Campus Connections
-15. Traverse Campus Locations using BFS or DFS
-16. Exit
-Select an option: 1. BFS
-2. DFS
-Select traversal: Campus locations:
-- Main Gate
-- Library
-- Engineering Faculty
-- Computer Laboratory
-- Lecture Hall
-- Cafeteria
-- Hostel
-Starting location: DFS traversal: Main Gate -> Library -> Computer Laboratory -> Lecture Hall -> Engineering Faculty -> Cafeteria -> Hostel
-Visited 7 of 7 locations from the starting location.
+Select an option: Campus route features are not available yet.
 
 ============================================================
  UNIVERSITY STUDENT RECORD AND CAMPUS ROUTE

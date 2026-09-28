@@ -1,23 +1,15 @@
-8
-9
-23DA2-0002
 4
-5
-6
+1
+0002
 0
 5
 1
-23DA2-0001
+0001
 Transcript
 Printed transcript copy
 2
 0
 6
+8
 14
-15
-1
-Main Gate
-15
-2
-Main Gate
 16
