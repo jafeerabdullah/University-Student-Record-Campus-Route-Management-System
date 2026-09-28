@@ -315,7 +315,17 @@ public final class TestRunner {
         check(system.findStudent("A") == null, "Popping history does not undo");
         UniversitySystem demo = new UniversitySystem();
         demo.loadDemoData();
-        check(demo.allStudents().length == 3 && demo.locationNames().length == 7 && demo.indexesConsistent(), "Demo fixture");
+        check(demo.allStudents().length == 4 && demo.locationNames().length == 7 && demo.indexesConsistent(), "Demo fixture");
+        ids(demo.allStudents(), "0001", "0002", "0003", "0004");
+        String[] demoNames = {"Abdullah", "Asra", "Dilsath", "Nifra"};
+        String[] demoProgrammes = {"BAIT", "IT", "Computer Science", "Computer Science"};
+        double[] demoGpas = {3.75, 3.50, 3.90, 3.60};
+        Student[] demoStudents = demo.allStudents();
+        for (int i = 0; i < demoStudents.length; i++) {
+            check(demoStudents[i].getName().equals(demoNames[i])
+                    && demoStudents[i].getDegreeProgramme().equals(demoProgrammes[i])
+                    && demoStudents[i].getGpa() == demoGpas[i], "Requested demo student " + demoNames[i]);
+        }
         names(demo.traverse("Main Gate", true), "Main Gate", "Library", "Engineering Faculty", "Computer Laboratory", "Cafeteria", "Lecture Hall", "Hostel");
         rejects(demo::loadDemoData);
     }
